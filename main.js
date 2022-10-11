@@ -1,9 +1,21 @@
 const app = Vue.createApp({
     data() {
         return {
-            product: 'boots',
-            image: './Kuvat/socks_green.jpg',
-            url: 'https://www.vuemastery.com/'
+            cart: [],
+            premium: true
         }
+    },
+    methods: {
+        updateCart(id) {
+            this.cart.push(id)
+        },
+        // solution
+        removeById(id) {
+            const index = this.cart.indexOf(id)
+                if (index > -1) {
+                    this.cart.splice(index, 1)
+                }
+        }
+        // solution
     }
-})  
+})
